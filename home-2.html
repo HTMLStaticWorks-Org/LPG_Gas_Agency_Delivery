@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedFlame LPG — Express Gas Agency &amp; Consumer Refill Platform</title>
+  <meta name="description" content="Experience guaranteed 2-hour LPG cylinder refill delivery, digital weight checks, commercial manifold supply, and online consumer portal tracking.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231C1917'/><rect x='25' y='28' width='50' height='56' rx='12' fill='%23DC2626'/><path d='M36 28V18C36 14.5 41 12 50 12C59 12 64 14.5 64 18V28' stroke='%23F87171' stroke-width='3' stroke-linecap='round' fill='none'/><path d='M50 36C50 36 62 48 62 60C62 67 57 72 50 72C43 72 38 67 38 60C38 48 50 36 50 36Z' fill='%23F97316'/><path d='M50 48C50 48 55 54 55 61C55 64 53 66 50 66C47 66 45 64 45 61C45 54 50 48 50 48Z' fill='%23FEF08A'/></svg>">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       CRITICAL NAVBAR (Reusable across all pages)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <!-- Brand SVG Logo -->
+        <a href="index.html" class="brand-logo" aria-label="RedFlame LPG Agency &amp; Delivery Home">
+          <div class="logo-badge">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="rfCylHome2Nav" x1="20" y1="20" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#EF4444"/>
+                  <stop offset="50%" stop-color="#DC2626"/>
+                  <stop offset="100%" stop-color="#991B1B"/>
+                </linearGradient>
+                <linearGradient id="rfFlameHome2Nav" x1="50" y1="75" x2="50" y2="25" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#EA580C"/>
+                  <stop offset="50%" stop-color="#F97316"/>
+                  <stop offset="100%" stop-color="#FBBF24"/>
+                </linearGradient>
+                <linearGradient id="rfCoreHome2Nav" x1="50" y1="70" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FEF08A"/>
+                  <stop offset="100%" stop-color="#FFFFFF"/>
+                </linearGradient>
+              </defs>
+              <rect x="22" y="26" width="56" height="60" rx="14" fill="url(#rfCylHome2Nav)" stroke="#F87171" stroke-width="2"/>
+              <path d="M33 26V16C33 12 38 9.5 50 9.5C62 9.5 67 12 67 16V26" stroke="#F87171" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <rect x="42" y="14" width="16" height="5" rx="2.5" fill="#1C1917" stroke="#FCA5A5" stroke-width="1.2"/>
+              <rect x="47" y="22" width="6" height="5" rx="1" fill="#F97316"/>
+              <line x1="22" y1="40" x2="78" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+              <line x1="22" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+              <rect x="28" y="86" width="44" height="6" rx="3" fill="#7F1D1D" stroke="#F87171" stroke-width="1.5"/>
+              <path d="M50 34C50 34 63 47 63 60C63 68 57 74 50 74C43 74 37 68 37 60C37 47 50 34 50 34Z" fill="url(#rfFlameHome2Nav)"/>
+              <path d="M50 47C50 47 56 54 56 62C56 65.5 53.5 68 50 68C46.5 68 44 65.5 44 62C44 54 50 48 50 48Z" fill="url(#rfCoreHome2Nav)"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">RedFlame LPG</span>
+            <span class="brand-subtitle">Agency &amp; Delivery</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links (>1024px) -->
+        <div class="nav-links-desktop">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="home-2.html" class="nav-link active">Home 2</a>
+          <a href="agency.html" class="nav-link">Agency</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="tariff.html" class="nav-link">Tariff</a>
+          <a href="safety.html" class="nav-link">Safety</a>
+          <a href="support.html" class="nav-link">Support</a>
+          <a href="dashboard.html" class="nav-link" title="Consumer Dashboard">Dashboard</a>
+        </div>
+
+        <!-- Desktop Action Controls (>1024px) -->
+        <div class="nav-actions-desktop">
+          <!-- Theme Toggle (Icon Only) -->
+          <button type="button" class="control-toggle control-icon-only theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+            <span class="theme-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+
+          <!-- RTL Toggle (Icon Only) -->
+          <button type="button" class="control-toggle control-icon-only rtl-toggle-btn" aria-label="Toggle text direction" title="Toggle RTL / LTR">
+            <span class="rtl-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+            </span>
+          </button>
+
+          <!-- Primary Login CTA Button -->
+          <a href="login.html" class="btn btn-primary btn-sm nav-cta-login">
+            <span>Login</span>
+          </a>
+        </div>
+
+        <!-- Mobile & Tablet Hamburger Button (<=1024px) -->
+        <button type="button" class="hamburger-btn" aria-label="Toggle navigation drawer" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SIDEBAR / DRAWER COMPONENT
+       ========================================================================== -->
+  <div class="sidebar-overlay" aria-hidden="true"></div>
+  <aside class="site-sidebar" aria-label="Mobile Navigation Drawer">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <div class="logo-badge">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="rfCylHome2M" x1="20" y1="20" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#EF4444"/>
+                <stop offset="50%" stop-color="#DC2626"/>
+                <stop offset="100%" stop-color="#991B1B"/>
+              </linearGradient>
+              <linearGradient id="rfFlameHome2M" x1="50" y1="75" x2="50" y2="25" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#EA580C"/>
+                <stop offset="50%" stop-color="#F97316"/>
+                <stop offset="100%" stop-color="#FBBF24"/>
+              </linearGradient>
+              <linearGradient id="rfCoreHome2M" x1="50" y1="70" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FEF08A"/>
+                <stop offset="100%" stop-color="#FFFFFF"/>
+              </linearGradient>
+            </defs>
+            <rect x="22" y="26" width="56" height="60" rx="14" fill="url(#rfCylHome2M)" stroke="#F87171" stroke-width="2"/>
+            <path d="M33 26V16C33 12 38 9.5 50 9.5C62 9.5 67 12 67 16V26" stroke="#F87171" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <rect x="42" y="14" width="16" height="5" rx="2.5" fill="#1C1917" stroke="#FCA5A5" stroke-width="1.2"/>
+            <rect x="47" y="22" width="6" height="5" rx="1" fill="#F97316"/>
+            <line x1="22" y1="40" x2="78" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+            <line x1="22" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+            <rect x="28" y="86" width="44" height="6" rx="3" fill="#7F1D1D" stroke="#F87171" stroke-width="1.5"/>
+            <path d="M50 34C50 34 63 47 63 60C63 68 57 74 50 74C43 74 37 68 37 60C37 47 50 34 50 34Z" fill="url(#rfFlameHome2M)"/>
+            <path d="M50 47C50 47 56 54 56 62C56 65.5 53.5 68 50 68C46.5 68 44 65.5 44 62C44 54 50 48 50 48Z" fill="url(#rfCoreHome2M)"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">RedFlame LPG</span>
+          <span class="brand-subtitle">Agency &amp; Delivery</span>
+        </div>
+      </div>
+      <button type="button" class="sidebar-close-btn" aria-label="Close navigation drawer">✕</button>
+    </div>
+
+    <div class="sidebar-body">
+      <!-- Main Navigation Links -->
+      <nav class="sidebar-nav-list">
+        <a href="index.html" class="sidebar-nav-link">Home</a>
+        <a href="home-2.html" class="sidebar-nav-link active">Home 2</a>
+        <a href="agency.html" class="sidebar-nav-link">Agency</a>
+        <a href="services.html" class="sidebar-nav-link">Services</a>
+        <a href="tariff.html" class="sidebar-nav-link">Tariff</a>
+        <a href="safety.html" class="sidebar-nav-link">Safety</a>
+        <a href="support.html" class="sidebar-nav-link">Support</a>
+        <a href="dashboard.html" class="sidebar-nav-link">Dashboard</a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <!-- Theme & RTL Toggle Icons -->
+      <div class="sidebar-controls-row">
+        <button type="button" class="control-toggle control-icon-only theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+          <span class="theme-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        </button>
+        <button type="button" class="control-toggle control-icon-only rtl-toggle-btn" aria-label="Toggle text direction" title="Toggle RTL / LTR">
+          <span class="rtl-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg></span>
+        </button>
+      </div>
+
+      <!-- Primary CTA Button -->
+      <div class="sidebar-cta-wrap">
+        <a href="login.html" class="btn btn-primary sidebar-cta-btn">
+          <span>Login</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         SECTION 01 — IMMERSIVE FULL-WIDTH HERO (Home 2 Distinct Design)
+         Image: images/image-43.png
+         ========================================================================== -->
+    <section class="hero-home-2" style="background-image: url('images/image-43.png');">
+      <div class="hero-home-2-overlay"></div>
+      <div class="container">
+        <div class="hero-content-2 reveal">
+          <span class="eyebrow" style="background: rgba(255,255,255,0.18); color: #FFFFFF;">Certified Petroleum Distributorship</span>
+          <h1>Precision Energy. Guaranteed 2-Hour Doorstep Refills.</h1>
+          <p class="lead">An uncompromising LPG supply network engineered around safety, certified net weight accuracy, and instant automated delivery dispatch for households and commercial enterprises alike.</p>
+          
+          <div class="cta-btn-group" style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px;">
+            <button type="button" class="btn btn-primary btn-lg" data-open-modal="booking">
+              <span>Order Gas Refill</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="#bento-services" class="btn btn-white btn-lg">
+              <span>Explore LPG Categories</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 02 — SERVICE CATEGORY OVERVIEW (6 Bento Services)
+         ========================================================================== -->
+    <section class="section" id="bento-services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Product &amp; Supply Matrix</span>
+          <h2>Certified LPG Solutions for Every Scale</h2>
+          <p>Explore our specialized cylinder capacities engineered for single residential kitchens, busy restaurants, and industrial heat facilities.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: Commercial 19kg Supply -->
+          <div class="bento-tile bento-large reveal">
+            <div class="bento-media">
+              <img src="images/image-10.png" alt="Commercial 19kg LPG cylinders aligned for high-heat restaurant commercial stoves" width="1200" height="896">
+              <span class="card-badge">HoReCa Supply Line</span>
+            </div>
+            <div class="bento-content">
+              <h3 style="font-size:1.3rem; margin-block-end:8px;">Commercial LPG Cylinders (19 kg)</h3>
+              <p style="color:var(--text-muted); font-size:0.93rem; margin-block-end:18px;">Dedicated manifold bank supply for restaurants, banquet facilities, bakery ovens, and corporate food cafeterias with priority early morning route fulfillment.</p>
+              <div class="bento-card-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:var(--accent-primary);">₹1,780 / cylinder</span>
+                <button type="button" class="btn btn-primary btn-sm" data-open-modal="booking" data-service="commercial-19">Book Commercial</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Domestic 14.2kg Refill -->
+          <div class="bento-tile bento-medium reveal">
+            <div class="bento-media">
+              <img src="images/image-41.png" alt="Domestic 14.2 kg LPG cylinder with holographic safety seal and QR code verification" width="2048" height="1152">
+              <span class="card-badge">Residential Core</span>
+            </div>
+            <div class="bento-content">
+              <h3 style="font-size:1.3rem; margin-block-end:8px;">Domestic 14.2 kg Household Refill</h3>
+              <p style="color:var(--text-muted); font-size:0.93rem; margin-block-end:18px;">Tamper-proof heat shrink seal, pre-delivery digital scale weighment, and direct DBT subsidy linking directly to your Aadhaar-seeded bank account.</p>
+              <div class="bento-card-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:var(--accent-primary);">₹853 / refill</span>
+                <button type="button" class="btn btn-outline btn-sm" data-open-modal="booking" data-service="domestic-14">Book Domestic</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Industrial 47.5kg Jumbo Cylinders -->
+          <div class="bento-tile bento-medium reveal">
+            <div class="bento-media">
+              <img src="images/image-54.png" alt="Heavy duty 47.5 kg industrial LPG tanks connected with high-pressure valves" width="1408" height="768">
+              <span class="card-badge">Manufacturing Grade</span>
+            </div>
+            <div class="bento-content">
+              <h3 style="font-size:1.3rem; margin-block-end:8px;">Industrial Jumbo Tanks (47.5 kg)</h3>
+              <p style="color:var(--text-muted); font-size:0.93rem; margin-block-end:18px;">Liquid off-take (LOT) and high-discharge vapor cylinders designed for factory furnaces, powder coating, pharmaceutical heating, and asphalt mixing plants.</p>
+              <div class="bento-card-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:var(--accent-primary);">₹4,450 / tank</span>
+                <button type="button" class="btn btn-outline btn-sm" data-open-modal="booking" data-service="industrial-47">Book Industrial</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Compact 5kg Chotu Refill -->
+          <div class="bento-tile bento-small-1 reveal">
+            <div class="bento-media">
+              <img src="images/image-26.png" alt="Compact 5 kg mini cylinder for students and single professionals" width="1024" height="682">
+              <span class="card-badge">Zero Documents FTL</span>
+            </div>
+            <div class="bento-content">
+              <h3 style="font-size:1.3rem; margin-block-end:8px;">Compact 5 kg Chotu</h3>
+              <p style="color:var(--text-muted); font-size:0.93rem; margin-block-end:18px;">Instant walk-in and delivery Free Trade LPG (FTL) cylinders. No KYC or local address proof required; ideal for students and mobile professionals.</p>
+              <div class="bento-card-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:var(--accent-primary);">₹340 / refill</span>
+                <button type="button" class="btn btn-outline btn-sm" data-open-modal="booking" data-service="compact-5">Book 5kg</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: New Gas Connection Package -->
+          <div class="bento-tile bento-small-2 reveal">
+            <div class="bento-media">
+              <img src="images/image-29.png" alt="New gas connection paperwork with cylinder security voucher and regulator" width="828" height="828">
+              <span class="card-badge">Instant e-KYC</span>
+            </div>
+            <div class="bento-content">
+              <h3 style="font-size:1.3rem; margin-block-end:8px;">New Gas Connection Kit</h3>
+              <p style="color:var(--text-muted); font-size:0.93rem; margin-block-end:18px;">Subscription Voucher (SV), certified ISI Suraksha rubber hose, leak-proof pressure regulator, and domestic passbook all delivered in 24 hours.</p>
+              <div class="bento-card-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:var(--accent-primary);">₹2,250 complete</span>
+                <button type="button" class="btn btn-outline btn-sm" data-open-modal="booking" data-service="new-connection">Get Connection</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Kitchen Safety Inspection -->
+          <div class="bento-tile bento-small-3 reveal">
+            <div class="bento-media">
+              <img src="images/image-8.png" alt="Safety technician checking stove burners and copper gas pipeline in kitchen" width="900" height="600">
+              <span class="card-badge">2-Year Audit</span>
+            </div>
+            <div class="bento-content">
+              <h3 style="font-size:1.3rem; margin-block-end:8px;">Kitchen Safety &amp; Leak Audit</h3>
+              <p style="color:var(--text-muted); font-size:0.93rem; margin-block-end:18px;">Certified electronic sniffer gas leak testing, burner blue flame calibration, copper line inspection, and mandatory compliance certification.</p>
+              <div class="bento-card-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:var(--accent-primary);">₹199 / check</span>
+                <button type="button" class="btn btn-outline btn-sm" data-open-modal="booking" data-service="safety-inspection">Book Audit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 03 — SAFETY & DELIVERY TRUST EXPERIENCE
+         Images: images/image-27.png, image-13.png
+         ========================================================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="trust-story-grid">
+          <div class="trust-story-content reveal">
+            <span class="eyebrow">Zero-Compromise Safety</span>
+            <h2>Uncompromising Petroleum Standards from Depot to Kitchen</h2>
+            <p class="lead">Liquefied Petroleum Gas provides immense thermal energy, and safely handling it demands strict technical discipline.</p>
+            <p style="margin-block:16px 24px;">At RedFlame LPG, every cylinder arrives from certified bottling plants under rigorous hydrostatic pressure testing. Our delivery technicians are formally trained in valve O-ring leak detection, emergency fire suppression, and courteous doorstep installation so you cook with absolute confidence.</p>
+            
+            <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style="border-inline-start:3px solid var(--accent-primary); padding-inline-start:14px;">
+                <h3 style="font-size:1.8rem; color:var(--accent-primary);">100%</h3>
+                <p style="font-size:0.85rem;">Tamper-Proof Holographic Sealed</p>
+              </div>
+              <div style="border-inline-start:3px solid var(--accent-primary); padding-inline-start:14px;">
+                <h3 style="font-size:1.8rem; color:var(--accent-primary);">4.98 ★</h3>
+                <p style="font-size:0.85rem;">Doorstep Safety Delivery Satisfaction</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-media-collage reveal">
+            <div class="trust-media-frame trust-frame-top">
+              <img src="images/image-27.png" alt="RedFlame LPG delivery vehicle with secured cylinder racks navigating city streets" class="trust-img-main" width="1024" height="1024">
+            </div>
+            <div class="trust-media-frame trust-frame-bottom">
+              <img src="images/image-13.png" alt="Certified LPG technician explaining safety regulator handling to homemaker" class="trust-img-sub" width="1920" height="1047">
+            </div>
+            <div class="floating-trust-badge">
+              <span style="font-size:1.5rem;">🛡️</span>
+              <div>
+                <strong>PESO Compliant Operations</strong>
+                <p style="font-size:0.75rem; color:rgba(255,255,255,0.8);">Licensed Petroleum &amp; Explosives Distributorship</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 04 — LPG REFILL JOURNEY (4-Step Visual Journey)
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">End-to-End Precision</span>
+          <h2>The Seamless LPG Refill Journey</h2>
+          <p>From one-click booking to doorstep weight verification and digital OTP sign-off, experience total transparency.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;" class="grid-4">
+          <div class="premium-card reveal" style="padding:24px; text-align:center;">
+            <div style="width:62px; height:62px; border-radius:50%; background:var(--color-soft-green); color:var(--accent-primary); border:1px solid var(--color-card-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                <path d="M9 8h6M9 12h4"/>
+              </svg>
+            </div>
+            <h4 style="margin-block-end:8px;">1. Enter Consumer ID</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Provide your 17-digit LPG ID or mobile number to authenticate your profile.</p>
+          </div>
+
+          <div class="premium-card reveal" style="padding:24px; text-align:center;">
+            <div style="width:62px; height:62px; border-radius:50%; background:var(--color-soft-green); color:var(--accent-primary); border:1px solid var(--color-card-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h4 style="margin-block-end:8px;">2. Select Refill Slot</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Choose 2-hour express delivery or select a morning or afternoon preferred window.</p>
+          </div>
+
+          <div class="premium-card reveal" style="padding:24px; text-align:center;">
+            <div style="width:62px; height:62px; border-radius:50%; background:var(--color-soft-green); color:var(--accent-primary); border:1px solid var(--color-card-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h4 style="margin-block-end:8px;">3. Calibrated Weight Check</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Your delivery specialist conducts a digital scale weighment and leak test before handover.</p>
+          </div>
+
+          <div class="premium-card reveal" style="padding:24px; text-align:center;">
+            <div style="width:62px; height:62px; border-radius:50%; background:var(--color-soft-green); color:var(--accent-primary); border:1px solid var(--color-card-border); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                <circle cx="7" cy="17" r="2"/>
+                <path d="M9 17h6"/>
+                <circle cx="17" cy="17" r="2"/>
+              </svg>
+            </div>
+            <h4 style="margin-block-end:8px;">4. OTP &amp; Digital Invoice</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted);">Provide the delivery completion OTP and instantly download your GST cash memo.</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:36px;" class="reveal">
+          <button type="button" class="btn btn-primary mobile-cta-btn" data-open-modal="booking">
+            <span>Book Your Refill Now</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 05 — LEAD DELIVERY SUPERVISOR & SAFETY OFFICER
+         Image: images/image-60.png
+         ========================================================================== -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Distributorship Operations Spotlight</span>
+          <h2>Featured Delivery Supervisor</h2>
+          <p>Meet our premier logistics officer upholding the highest standards of petroleum handling and neighborhood delivery fulfillment.</p>
+        </div>
+
+        <div class="driver-feature-card reveal">
+          <img src="images/image-60.png" alt="Featured LPG Delivery Supervisor in official uniform standing beside delivery fleet" class="driver-feature-img" width="1920" height="1280">
+          
+          <div class="driver-feature-content">
+            <span class="status-badge" style="margin-block-end:8px;">⭐ Certified Safety Officer</span>
+            <h3 style="font-size:2rem; margin-block-end:4px;">Karthik Selvan</h3>
+            <p style="color:var(--accent-primary); font-weight:700; margin-block-end:16px;">Central Logistics Marshal &bull; Hazmat &amp; Safety Specialist</p>
+            <p style="color:var(--text-muted); line-height:1.6; margin-block-end:20px;">Karthik oversees daily routing for 4,500+ cylinder dispatches across 18 residential and commercial wards. Certified by the Petroleum &amp; Explosives Safety Organisation (PESO) in high-pressure manifold management and rapid fire response protocols.</p>
+            
+            <div class="driver-spec-list">
+              <div class="driver-spec-item">
+                <span class="driver-spec-label">Experience</span>
+                <div class="driver-spec-val">12+ Years Agency Tenure</div>
+              </div>
+              <div class="driver-spec-item">
+                <span class="driver-spec-label">Customer Rating</span>
+                <div class="driver-spec-val">4.98 / 5.0 (4,200+ deliveries)</div>
+              </div>
+              <div class="driver-spec-item">
+                <span class="driver-spec-label">Languages</span>
+                <div class="driver-spec-val">English, Hindi, Tamil</div>
+              </div>
+              <div class="driver-spec-item">
+                <span class="driver-spec-label">Specialization</span>
+                <div class="driver-spec-val">Commercial Manifold &amp; Safety Audits</div>
+              </div>
+            </div>
+
+            <div class="cta-btn-group" style="display:flex; gap:14px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" data-open-modal="booking">Order Express Refill</button>
+              <a href="safety.html" class="btn btn-outline">Read Safety Guidelines</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 06 — JOURNEY BENEFITS (4 LPG Delivery Benefits)
+         Images: images/image-11.png, image-35.png, image-12.png, image-32.png
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">The Consumer Privilege</span>
+          <h2>Every Cylinder Engineered for Peace of Mind</h2>
+          <p>Say goodbye to long booking queues, uncertainty over cylinder weight, or unmetered delivery fees.</p>
+        </div>
+
+        <div class="grid-4 benefit-cards-grid">
+          <!-- Benefit 1: Exact Calibrated Weight -->
+          <div class="premium-card reveal">
+            <div class="card-img-wrap">
+              <img src="images/image-11.png" alt="Delivery agent carrying certified weight scale to customer doorstep" width="600" height="403">
+              <span class="card-badge">Digital Precision</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Exact Net Weight</h3>
+              <p class="card-desc">No shortages or gas theft. Our delivery personnel verify gross weight and tare weight on an electronic scale right before your eyes before handing over the cylinder.</p>
+              <div class="card-footer">
+                <span class="benefit-footer-tag">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>100% Calibrated</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 2: Free Valve Safety Check -->
+          <div class="premium-card reveal">
+            <div class="card-img-wrap">
+              <img src="images/image-35.png" alt="Homemaker resting comfortably knowing gas connection is securely tested" width="1536" height="1152">
+              <span class="card-badge">Family Serenity</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Free Valve Testing</h3>
+              <p class="card-desc">Our certified agent connects the regulator, inspects the rubber O-ring seal, and executes a mandatory soap-bubble test ensuring zero gas smell or micro-leakage.</p>
+              <div class="card-footer">
+                <span class="benefit-footer-tag">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>Soap-Tested Safety</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 3: Guaranteed 2-Hour Delivery -->
+          <div class="premium-card reveal">
+            <div class="card-img-wrap">
+              <img src="images/image-12.png" alt="Delivery agent ringing doorbell with brand new sealed LPG cylinder" width="1536" height="1024">
+              <span class="card-badge">Punctual Fulfillment</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Guaranteed Delivery SLA</h3>
+              <p class="card-desc">Ward-level staging godowns enable rapid dispatch within 2 hours of online or app confirmation. Standby buffer stock ensures you never run empty.</p>
+              <div class="card-footer">
+                <span class="benefit-footer-tag">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>2-Hour Guaranteed</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 4: 24/7 Gas Leak Hotline -->
+          <div class="premium-card reveal">
+            <div class="card-img-wrap">
+              <img src="images/image-32.png" alt="Emergency response gas service vehicle ready for immediate night response" width="1536" height="1024">
+              <span class="card-badge">Around the Clock</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">24/7 Leak Response</h3>
+              <p class="card-desc">National toll-free 1906 integration and dedicated agency mobile emergency teams stationed within your municipal sector ready for immediate SOS response.</p>
+              <div class="card-footer">
+                <span class="benefit-footer-tag">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>Dial 1906 or 1800-425</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 07 — CONSUMER DASHBOARD PREVIEW
+         ========================================================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Smart Consumer Portal</span>
+          <h2>Digital Refill Booking &amp; Delivery Tracking</h2>
+          <p>Book refills in one tap, track the live delivery vehicle on route, verify assigned delivery agent credentials, and download tax invoices.</p>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--color-card-border); border-radius:var(--radius-xl); box-shadow:var(--shadow-lg); padding:clamp(24px, 4vw, 40px);" class="reveal dash-preview-card">
+          <div class="dash-preview-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-block-end:24px; padding-bottom:16px; border-bottom:1px solid var(--color-border);">
+            <div>
+              <span style="font-size:0.8rem; text-transform:uppercase; font-weight:700; color:var(--accent-primary);">Live Consumer Portal</span>
+              <h3 style="font-size:1.4rem;">Consumer ID: 17-2940-8421 &bull; Active Order Status</h3>
+            </div>
+            <a href="dashboard.html" class="btn btn-primary btn-sm mobile-cta-btn">Open Consumer Dashboard →</a>
+          </div>
+
+          <!-- Mockup upcoming refill delivery -->
+          <div class="upcoming-booking-card dash-preview-banner">
+            <div>
+              <span class="status-pill" style="background:rgba(255,255,255,0.2); color:#FFFFFF; margin-block-end:10px;">Refill Order #LPG-8942 Dispatched</span>
+              <h4 style="color:#FFFFFF; font-size:1.4rem; margin-block-end:6px;">Domestic 14.2 kg Subsidized Refill Cylinder</h4>
+              <p style="font-size:0.92rem; color:rgba(255,255,255,0.9); margin:0;">Out for Delivery &bull; Estimated Arrival: Today by 10:45 AM &bull; Calibrated Weight Checked (Net 14.2 kg)</p>
+            </div>
+
+            <div class="upcoming-driver-pill">
+              <div class="upcoming-driver-img" style="background:var(--accent-primary); color:#FFFFFF; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.15rem; flex-shrink:0;">RK</div>
+              <div>
+                <h5 style="color:#FFFFFF; font-size:1rem; margin-block-end:2px;">Ramesh Kumar</h5>
+                <p style="color:rgba(255,255,255,0.8); font-size:0.8rem; margin:0;">Lead Delivery Specialist &bull; Trike #DL-08-4102</p>
+                <span style="font-size:0.75rem; color:#FFE600; font-weight:700;">★ 4.98 Rating &bull; Scale Verified</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stat Row in Preview -->
+          <div class="dash-stats-grid" style="margin-top:24px;">
+            <div class="stat-card">
+              <div class="stat-info">
+                <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">Total Refills Invoiced</p>
+                <h4 style="font-size:1.5rem; color:var(--heading-color); margin:4px 0 0;">14 Cylinders</h4>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-info">
+                <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">Last Net Weight Handover</p>
+                <h4 style="font-size:1.5rem; color:var(--accent-primary); margin:4px 0 0;">14.24 kg</h4>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-info">
+                <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">DBT Subsidy Credited</p>
+                <h4 style="font-size:1.5rem; color:var(--accent-emerald); margin:4px 0 0;">₹4,200 Total</h4>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-info">
+                <p style="font-size:0.82rem; color:var(--text-muted); margin:0;">Mandatory Safety Audit</p>
+                <h4 style="font-size:1.5rem; color:#10B981; margin:4px 0 0;">Compliant (Valid 2028)</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 08 — CONVERSION CTA
+         ========================================================================== -->
+    <section class="section section-dark" style="position:relative; overflow:hidden;">
+      <div style="position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(2, 132, 199, 0.28) 0%, transparent 70%); border-radius:50%; pointer-events:none;"></div>
+      <div class="container" style="position:relative; z-index:2;">
+        <div style="max-width:760px; margin-inline:auto; text-align:center;" class="reveal">
+          <span class="eyebrow" style="background:rgba(255,255,255,0.15); color:#FFFFFF;">Guaranteed Fast Fulfillment</span>
+          <h2 style="font-size:clamp(2rem, 4vw, 3rem); margin-block:16px 20px;">Ready for Worry-Free Cooking Energy?</h2>
+          <p style="font-size:1.15rem; line-height:1.7; margin-block-end:36px;">Schedule your 14.2kg domestic refill, commercial 19kg cylinder, or book a comprehensive kitchen gas leak inspection with RedFlame LPG Agency today.</p>
+          
+          <div class="cta-btn-group" style="display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:16px;">
+            <button type="button" class="btn btn-white btn-lg" data-open-modal="booking">
+              <span>Order Refill Cylinder</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="tariff.html" class="btn btn-outline btn-lg" style="color:#FFFFFF; border-color:rgba(255,255,255,0.4);">
+              <span>Explore Cylinder Tariff</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SHARED REUSABLE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-block-end:16px;" aria-label="RedFlame LPG Agency &amp; Delivery Home">
+            <div class="logo-badge">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="rfCylHome2Ft" x1="20" y1="20" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#EF4444"/>
+                    <stop offset="50%" stop-color="#DC2626"/>
+                    <stop offset="100%" stop-color="#991B1B"/>
+                  </linearGradient>
+                  <linearGradient id="rfFlameHome2Ft" x1="50" y1="75" x2="50" y2="25" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#EA580C"/>
+                    <stop offset="50%" stop-color="#F97316"/>
+                    <stop offset="100%" stop-color="#FBBF24"/>
+                  </linearGradient>
+                  <linearGradient id="rfCoreHome2Ft" x1="50" y1="70" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FEF08A"/>
+                    <stop offset="100%" stop-color="#FFFFFF"/>
+                  </linearGradient>
+                </defs>
+                <rect x="22" y="26" width="56" height="60" rx="14" fill="url(#rfCylHome2Ft)" stroke="#F87171" stroke-width="2"/>
+                <path d="M33 26V16C33 12 38 9.5 50 9.5C62 9.5 67 12 67 16V26" stroke="#F87171" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <rect x="42" y="14" width="16" height="5" rx="2.5" fill="#1C1917" stroke="#FCA5A5" stroke-width="1.2"/>
+                <rect x="47" y="22" width="6" height="5" rx="1" fill="#F97316"/>
+                <line x1="22" y1="40" x2="78" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+                <line x1="22" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+                <rect x="28" y="86" width="44" height="6" rx="3" fill="#7F1D1D" stroke="#F87171" stroke-width="1.5"/>
+                <path d="M50 34C50 34 63 47 63 60C63 68 57 74 50 74C43 74 37 68 37 60C37 47 50 34 50 34Z" fill="url(#rfFlameHome2Ft)"/>
+                <path d="M50 47C50 47 56 54 56 62C56 65.5 53.5 68 50 68C46.5 68 44 65.5 44 62C44 54 50 48 50 48Z" fill="url(#rfCoreHome2Ft)"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">RedFlame LPG</span>
+              <span class="brand-subtitle">Agency &amp; Delivery</span>
+            </div>
+          </a>
+          <p class="footer-desc">RedFlame LPG Agency &amp; Delivery is your authorized petroleum energy partner providing certified, weight-verified domestic and commercial gas cylinders with 2-hour doorstep fulfillment.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="X (Twitter)" title="X (Twitter)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="home-2.html" class="footer-link">Home 2</a>
+            <a href="agency.html" class="footer-link">Agency</a>
+            <a href="services.html" class="footer-link">Services</a>
+            <a href="tariff.html" class="footer-link">Tariff</a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h5>LPG Categories</h5>
+          <div class="footer-links">
+            <a href="services.html#domestic-lpg" class="footer-link">Domestic Refill 14.2kg</a>
+            <a href="services.html#commercial-lpg" class="footer-link">Commercial 19kg Supply</a>
+            <a href="services.html#domestic-lpg" class="footer-link">Compact 5kg Chotu</a>
+            <a href="services.html#new-connection" class="footer-link">New Connection &amp; KYC</a>
+            <a href="services.html#safety-inspection" class="footer-link">Kitchen Safety Inspection</a>
+          </div>
+        </div>
+
+        <!-- Consumer Portal & Safety -->
+        <div class="footer-col">
+          <h5>Consumer Desk</h5>
+          <div class="footer-links">
+            <a href="safety.html" class="footer-link">Safety</a>
+            <a href="dashboard.html" class="footer-link">Dashboard</a>
+            <a href="login.html" class="footer-link">Login</a>
+            <a href="support.html" class="footer-link">Support</a>
+            <a href="support.html#faq" class="footer-link">Distributorship FAQ</a>
+          </div>
+        </div>
+
+        <!-- Emergency Hotline & Updates -->
+        <div class="footer-col">
+          <h5>24/7 Gas Leak Desk</h5>
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin-block-end:14px;">National LPG Leak Helpline: <strong>1906</strong><br>Agency Emergency Desk: <strong>1800-425-3526</strong></p>
+          <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing to RedFlame LPG safety alerts!', 'success'); this.reset();" style="display:flex; flex-direction:column; gap:10px;">
+            <input type="email" placeholder="Enter your email address" required style="padding:10px 14px; border-radius:var(--radius-md); background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#FFFFFF; font-size:0.9rem;">
+            <button type="submit" class="btn btn-primary btn-sm" style="background:var(--color-fresh);">Get Safety Alerts</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 RedFlame LPG Agency &amp; Delivery Platform. All rights reserved.</p>
+        <p>Authorized LPG Distributorship &bull; Strict PESO &amp; Petroleum Safety Compliance &bull; 2-Hour Doorstep Delivery</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SHARED BOOKING MODAL (Refill Booking Modal)
+       ========================================================================== -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalTitle" style="font-size:1.35rem; margin-block-end:4px;">Book an LPG Cylinder Refill</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Guaranteed 2-hour doorstep delivery with digital weight check</p>
+        </div>
+        <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="bookingModalForm" style="display:flex; flex-direction:column; gap:18px;">
+          <div class="form-group">
+            <label for="bookingModalService" class="form-label">Cylinder Category &amp; Tariff</label>
+            <select id="bookingModalService" class="form-control" required>
+              <option value="domestic-14">Domestic Refill 14.2 kg (₹853 / cylinder)</option>
+              <option value="commercial-19">Commercial 19 kg Cylinder (₹1,780 / cylinder)</option>
+              <option value="compact-5">Compact 5 kg Chotu Cylinder (₹340 / refill)</option>
+              <option value="industrial-47">Industrial 47.5 kg Jumbo Tank (₹4,450 / cylinder)</option>
+              <option value="new-connection">New Connection Kit + SV + Regulator (₹2,250)</option>
+              <option value="safety-inspection">Kitchen Safety Audit &amp; Gas Leak Check (₹199)</option>
+            </select>
+          </div>
+
+          <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div class="form-group">
+              <label for="bookingModalPickup" class="form-label">Consumer ID / Mobile No.</label>
+              <input type="text" id="bookingModalPickup" class="form-control" placeholder="17-Digit LPG ID or Mobile" required>
+            </div>
+            <div class="form-group">
+              <label for="bookingModalDrop" class="form-label">Delivery Address / Ward</label>
+              <input type="text" id="bookingModalDrop" class="form-control" placeholder="Flat No., Street, Sector" required>
+            </div>
+          </div>
+
+          <div class="grid-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+            <div class="form-group">
+              <label for="bookingModalDate" class="form-label">Delivery Date</label>
+              <input type="date" id="bookingModalDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="bookingModalTime" class="form-label">Preferred Time</label>
+              <input type="time" id="bookingModalTime" class="form-control" value="09:00" required>
+            </div>
+            <div class="form-group">
+              <label for="bookingModalHours" class="form-label">Cylinder Qty</label>
+              <input type="number" id="bookingModalHours" class="form-control" min="1" max="10" value="1" required>
+            </div>
+          </div>
+
+          <!-- Price Calculation Strip -->
+          <div style="background:var(--color-soft-green); border:1px solid rgba(2, 132, 199, 0.2); padding:16px; border-radius:var(--radius-md); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <span style="font-size:0.8rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); display:block;">Estimated Total (Govt. Tariff)</span>
+              <strong id="bookingModalEstimate" style="font-size:1.6rem; color:var(--accent-primary); font-family:var(--font-heading);">₹853</strong>
+            </div>
+            <span style="font-size:0.8rem; color:var(--text-muted); text-align:right;">Zero Floor Surcharges<br>DBT Subsidy &amp; Taxes Included</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+            <span>Confirm &amp; Dispatch Refill</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

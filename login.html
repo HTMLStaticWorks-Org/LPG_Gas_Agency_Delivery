@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — RedFlame LPG Agency &amp; Delivery</title>
+  <meta name="description" content="Sign in or register for your RedFlame LPG consumer account. Book refills, track express doorstep delivery, view digital weighment reports, and download GST invoices.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231C1917'/><rect x='25' y='28' width='50' height='56' rx='12' fill='%23DC2626'/><path d='M36 28V18C36 14.5 41 12 50 12C59 12 64 14.5 64 18V28' stroke='%23F87171' stroke-width='3' stroke-linecap='round' fill='none'/><path d='M50 36C50 36 62 48 62 60C62 67 57 72 50 72C43 72 38 67 38 60C38 48 50 36 50 36Z' fill='%23F97316'/><path d='M50 48C50 48 55 54 55 61C55 64 53 66 50 66C47 66 45 64 45 61C45 54 50 48 50 48Z' fill='%23FEF08A'/></svg>">
+</head>
+<body>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         SECTION — CONSUMER AUTHENTICATION (Centered Auth Card + Top-Right Controls)
+         ========================================================================== -->
+    <div class="auth-wrapper">
+      <!-- Top-Right Theme & RTL Controls -->
+      <div class="auth-top-controls">
+        <button type="button" class="control-toggle control-icon-only theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+          <span class="theme-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+
+        <button type="button" class="control-toggle control-icon-only rtl-toggle-btn" aria-label="Toggle text direction" title="Toggle RTL / LTR">
+          <span class="rtl-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- Centered Form Card -->
+      <div class="auth-form-pane">
+        <div class="auth-card">
+          <div class="auth-brand-header">
+            <a href="index.html" class="brand-logo auth-brand-link" aria-label="Go to RedFlame LPG Home">
+              <div class="logo-badge">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="rfCylAuth" x1="20" y1="20" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#EF4444"/>
+                      <stop offset="50%" stop-color="#DC2626"/>
+                      <stop offset="100%" stop-color="#991B1B"/>
+                    </linearGradient>
+                    <linearGradient id="rfFlameAuth" x1="50" y1="75" x2="50" y2="25" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#EA580C"/>
+                      <stop offset="50%" stop-color="#F97316"/>
+                      <stop offset="100%" stop-color="#FBBF24"/>
+                    </linearGradient>
+                    <linearGradient id="rfCoreAuth" x1="50" y1="70" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#FEF08A"/>
+                      <stop offset="100%" stop-color="#FFFFFF"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="22" y="26" width="56" height="60" rx="14" fill="url(#rfCylAuth)" stroke="#F87171" stroke-width="2"/>
+                  <path d="M33 26V16C33 12 38 9.5 50 9.5C62 9.5 67 12 67 16V26" stroke="#F87171" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  <rect x="42" y="14" width="16" height="5" rx="2.5" fill="#1C1917" stroke="#FCA5A5" stroke-width="1.2"/>
+                  <rect x="47" y="22" width="6" height="5" rx="1" fill="#F97316"/>
+                  <line x1="22" y1="40" x2="78" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+                  <line x1="22" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+                  <rect x="28" y="86" width="44" height="6" rx="3" fill="#7F1D1D" stroke="#F87171" stroke-width="1.5"/>
+                  <path d="M50 34C50 34 63 47 63 60C63 68 57 74 50 74C43 74 37 68 37 60C37 47 50 34 50 34Z" fill="url(#rfFlameAuth)"/>
+                  <path d="M50 47C50 47 56 54 56 62C56 65.5 53.5 68 50 68C46.5 68 44 65.5 44 62C44 54 50 48 50 48Z" fill="url(#rfCoreAuth)"/>
+                </svg>
+              </div>
+              <div class="brand-text">
+                <span class="brand-title">RedFlame LPG</span>
+                <span class="brand-subtitle">Agency &amp; Delivery</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Auth Toggle Tabs -->
+          <div class="auth-tabs" role="tablist">
+            <button type="button" class="auth-tab-btn active" id="loginTabBtn" role="tab" aria-selected="true">Sign In</button>
+            <button type="button" class="auth-tab-btn" id="registerTabBtn" role="tab" aria-selected="false">Register LPG ID</button>
+          </div>
+
+          <!-- SIGN IN FORM -->
+          <form id="loginForm" style="display:flex; flex-direction:column; gap:18px;">
+            <div style="margin-block-end:6px;">
+              <h2 style="font-size:1.65rem; margin-block-end:6px;">Welcome Back</h2>
+              <p style="font-size:0.92rem; color:var(--text-muted);">Enter your credentials or 17-digit LPG ID to access your consumer dashboard.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="loginEmail" class="form-label">Email or 17-Digit LPG ID *</label>
+              <input type="text" id="loginEmail" class="form-control" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <label for="loginPassword" class="form-label">Password *</label>
+                <a href="#" onclick="event.preventDefault(); showToast('Password reset PIN has been sent via SMS to your registered mobile number.');" style="font-size:0.8rem; color:var(--accent-primary); font-weight:600;">Forgot Password?</a>
+              </div>
+              <div class="password-input-wrap">
+                <input type="password" id="loginPassword" class="form-control" placeholder="" value="" required>
+                <button type="button" class="toggle-password-btn" data-target="loginPassword" aria-label="Show password" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" id="rememberMe" checked style="width:18px; height:18px; accent-color:var(--accent-primary);">
+              <label for="rememberMe" style="font-size:0.88rem; color:var(--text-main); cursor:pointer;">Keep my consumer session active on this device</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%; margin-top:8px;">
+              <span>Sign In to Dashboard</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+
+            <div class="auth-divider"><span>or continue with</span></div>
+
+            <div class="auth-social-stack">
+              <button type="button" class="auth-social-btn" data-oauth="Google">
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24Z"/>
+                  <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14Z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96Z"/>
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+              <button type="button" class="auth-social-btn" data-oauth="Apple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/>
+                </svg>
+                <span>Continue with Apple</span>
+              </button>
+            </div>
+
+            <div style="background:var(--color-soft-green); padding:12px 16px; border-radius:var(--radius-md); font-size:0.82rem; color:var(--text-muted); border:1px dashed rgba(2, 132, 199, 0.3); text-align:center;">
+              <strong>Quick Consumer Access:</strong> Click Sign In with the pre-filled credentials to explore your consumer dashboard.
+            </div>
+          </form>
+
+          <!-- REGISTER FORM (Hidden by default) -->
+          <form id="registerForm" style="display:none; flex-direction:column; gap:16px;">
+            <div style="margin-block-end:4px;">
+              <h2 style="font-size:1.65rem; margin-block-end:6px;">Register LPG Account</h2>
+              <p style="font-size:0.92rem; color:var(--text-muted);">Link your 17-digit LPG ID for instant refill bookings and doorstep weighment tracking.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="regName" class="form-label">Full Name *</label>
+              <input type="text" id="regName" class="form-control" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail" class="form-label">Email Address *</label>
+              <input type="email" id="regEmail" class="form-control" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regPhone" class="form-label">Registered Mobile Number *</label>
+              <input type="tel" id="regPhone" class="form-control" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regLpgId" class="form-label">17-Digit LPG Consumer ID *</label>
+              <input type="text" id="regLpgId" class="form-control" placeholder="" required>
+            </div>
+
+            <div class="form-group">
+              <label for="regPass" class="form-label">Password *</label>
+              <div class="password-input-wrap">
+                <input type="password" id="regPass" class="form-control" placeholder="" required>
+                <button type="button" class="toggle-password-btn" data-target="regPass" aria-label="Show password" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirmPass" class="form-label">Confirm Password *</label>
+              <div class="password-input-wrap">
+                <input type="password" id="regConfirmPass" class="form-control" placeholder="" required>
+                <button type="button" class="toggle-password-btn" data-target="regConfirmPass" aria-label="Show password" aria-pressed="false">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div style="display:flex; align-items:flex-start; gap:8px;">
+              <input type="checkbox" id="regTerms" required style="width:18px; height:18px; accent-color:var(--accent-primary); margin-top:3px;">
+              <label for="regTerms" style="font-size:0.82rem; color:var(--text-muted); cursor:pointer;">I agree to the Terms of Service &amp; Safety Guidelines of RedFlame LPG Agency.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+              <span>Create Consumer Account</span>
+            </button>
+
+            <div class="auth-divider"><span>or register with</span></div>
+
+            <div class="auth-social-stack">
+              <button type="button" class="auth-social-btn" data-oauth="Google">
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24Z"/>
+                  <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14Z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96Z"/>
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+              <button type="button" class="auth-social-btn" data-oauth="Apple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/>
+                </svg>
+                <span>Continue with Apple</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

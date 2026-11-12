@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — RedFlame LPG Agency &amp; Delivery</title>
+  <meta name="description" content="Consumer dashboard for booking LPG cylinder refills, tracking express doorstep delivery, reviewing digital weighment reports, and viewing billing invoices.">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231C1917'/><rect x='25' y='28' width='50' height='56' rx='12' fill='%23DC2626'/><path d='M36 28V18C36 14.5 41 12 50 12C59 12 64 14.5 64 18V28' stroke='%23F87171' stroke-width='3' stroke-linecap='round' fill='none'/><path d='M50 36C50 36 62 48 62 60C62 67 57 72 50 72C43 72 38 67 38 60C38 48 50 36 50 36Z' fill='%23F97316'/><path d='M50 48C50 48 55 54 55 61C55 64 53 66 50 66C47 66 45 64 45 61C45 54 50 48 50 48Z' fill='%23FEF08A'/></svg>">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       CONSUMER DASHBOARD MOBILE / TABLET NAVBAR (<= 1024px)
+       ========================================================================== -->
+  <header class="dash-mobile-header">
+    <a href="index.html" class="brand-logo dash-mobile-brand" aria-label="RedFlame LPG Home">
+      <div class="logo-badge">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="rfCylDashM" x1="20" y1="20" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#EF4444"/>
+              <stop offset="50%" stop-color="#DC2626"/>
+              <stop offset="100%" stop-color="#991B1B"/>
+            </linearGradient>
+            <linearGradient id="rfFlameDashM" x1="50" y1="75" x2="50" y2="25" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#EA580C"/>
+              <stop offset="50%" stop-color="#F97316"/>
+              <stop offset="100%" stop-color="#FBBF24"/>
+            </linearGradient>
+            <linearGradient id="rfCoreDashM" x1="50" y1="70" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FEF08A"/>
+              <stop offset="100%" stop-color="#FFFFFF"/>
+            </linearGradient>
+          </defs>
+          <rect x="22" y="26" width="56" height="60" rx="14" fill="url(#rfCylDashM)" stroke="#F87171" stroke-width="2"/>
+          <path d="M33 26V16C33 12 38 9.5 50 9.5C62 9.5 67 12 67 16V26" stroke="#F87171" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <rect x="42" y="14" width="16" height="5" rx="2.5" fill="#1C1917" stroke="#FCA5A5" stroke-width="1.2"/>
+          <rect x="47" y="22" width="6" height="5" rx="1" fill="#F97316"/>
+          <line x1="22" y1="40" x2="78" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <line x1="22" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <rect x="28" y="86" width="44" height="6" rx="3" fill="#7F1D1D" stroke="#F87171" stroke-width="1.5"/>
+          <path d="M50 34C50 34 63 47 63 60C63 68 57 74 50 74C43 74 37 68 37 60C37 47 50 34 50 34Z" fill="url(#rfFlameDashM)"/>
+          <path d="M50 47C50 47 56 54 56 62C56 65.5 53.5 68 50 68C46.5 68 44 65.5 44 62C44 54 50 48 50 48Z" fill="url(#rfCoreDashM)"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">RedFlame LPG</span>
+        <span class="brand-subtitle">Agency &amp; Delivery</span>
+      </div>
+    </a>
+
+    <button type="button" class="hamburger-btn dash-hamburger-btn" aria-label="Toggle dashboard navigation" aria-expanded="false" aria-controls="dashSidebarDrawer">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <div class="sidebar-overlay dash-sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       CONSUMER DASHBOARD INTERFACE
+       ========================================================================== -->
+  <div class="dashboard-layout">
+    <!-- Dashboard Sidebar Navigation -->
+    <aside class="dash-sidebar" id="dashSidebarDrawer" aria-label="Dashboard Navigation">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="brand-logo dash-brand-logo" aria-label="RedFlame LPG Home">
+          <div class="logo-badge">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="rfCylDashSide" x1="20" y1="20" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#EF4444"/>
+                  <stop offset="50%" stop-color="#DC2626"/>
+                  <stop offset="100%" stop-color="#991B1B"/>
+                </linearGradient>
+                <linearGradient id="rfFlameDashSide" x1="50" y1="75" x2="50" y2="25" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#EA580C"/>
+                  <stop offset="50%" stop-color="#F97316"/>
+                  <stop offset="100%" stop-color="#FBBF24"/>
+                </linearGradient>
+                <linearGradient id="rfCoreDashSide" x1="50" y1="70" x2="50" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FEF08A"/>
+                  <stop offset="100%" stop-color="#FFFFFF"/>
+                </linearGradient>
+              </defs>
+              <rect x="22" y="26" width="56" height="60" rx="14" fill="url(#rfCylDashSide)" stroke="#F87171" stroke-width="2"/>
+              <path d="M33 26V16C33 12 38 9.5 50 9.5C62 9.5 67 12 67 16V26" stroke="#F87171" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <rect x="42" y="14" width="16" height="5" rx="2.5" fill="#1C1917" stroke="#FCA5A5" stroke-width="1.2"/>
+              <rect x="47" y="22" width="6" height="5" rx="1" fill="#F97316"/>
+              <line x1="22" y1="40" x2="78" y2="40" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+              <line x1="22" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+              <rect x="28" y="86" width="44" height="6" rx="3" fill="#7F1D1D" stroke="#F87171" stroke-width="1.5"/>
+              <path d="M50 34C50 34 63 47 63 60C63 68 57 74 50 74C43 74 37 68 37 60C37 47 50 34 50 34Z" fill="url(#rfFlameDashSide)"/>
+              <path d="M50 47C50 47 56 54 56 62C56 65.5 53.5 68 50 68C46.5 68 44 65.5 44 62C44 54 50 48 50 48Z" fill="url(#rfCoreDashSide)"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">RedFlame LPG</span>
+            <span class="brand-subtitle">Agency &amp; Delivery</span>
+          </div>
+        </a>
+        <button type="button" class="sidebar-close-btn dash-drawer-close" aria-label="Close dashboard navigation">✕</button>
+      </div>
+
+      <div class="dash-user-badge">
+        <div class="dash-user-avatar">VS</div>
+        <div class="dash-user-details">
+          <h5>Welcome back,</h5>
+          <strong class="dynamic-user-name" style="color:var(--heading-color); font-size:1.05rem;">Vikramaditya</strong>
+          <p>LPG ID: 2400008892147321 &bull; Active e-KYC</p>
+        </div>
+      </div>
+
+      <nav class="dash-menu" aria-label="Dashboard Section Tabs">
+        <button type="button" class="dash-menu-item active" data-pane="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Overview</span>
+        </button>
+
+        <button type="button" class="dash-menu-item" data-pane="book-driver">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3 3 0 0 0 2 12v4c0 .6.4 1 1 1h2"/></svg>
+          <span>Book Refill</span>
+        </button>
+
+        <button type="button" class="dash-menu-item" data-pane="my-bookings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Track Deliveries</span>
+        </button>
+
+        <button type="button" class="dash-menu-item" data-pane="assigned-drivers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Delivery Crew &amp; Auditors</span>
+        </button>
+
+        <button type="button" class="dash-menu-item" data-pane="invoices">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span>Invoices &amp; Billing</span>
+        </button>
+
+        <button type="button" class="dash-menu-item" data-pane="profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Consumer KYC &amp; Profile</span>
+        </button>
+
+        <div class="dash-sidebar-bottom">
+          <div class="dash-controls-row">
+            <button type="button" class="dash-control-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+              <span class="theme-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+            </button>
+            <button type="button" class="dash-control-btn rtl-toggle-btn" aria-label="Toggle text direction" title="Toggle RTL / LTR">
+              <span class="rtl-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg></span>
+            </button>
+          </div>
+
+          <button type="button" class="dash-menu-item dash-logout-btn" data-pane="logout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Dashboard Content Area -->
+    <main class="dash-content">
+
+      <!-- ======================================================================
+           PANE 1: OVERVIEW
+           ====================================================================== -->
+      <section class="dash-pane active" id="overview">
+        <div class="dash-topbar">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;">Consumer Central</span>
+            <h2>Welcome back, <span class="dynamic-user-name">Vikramaditya</span></h2>
+            <p style="color:var(--text-muted);">Here is an overview of your active refill dispatches, doorstep weighment checks, and billing.</p>
+          </div>
+          <button type="button" class="btn btn-primary mobile-cta-btn" onclick="document.querySelector('[data-pane=\'book-driver\']').click();">
+            <span>+ Book Refill</span>
+          </button>
+        </div>
+
+        <!-- 4 Key Stat Cards -->
+        <div class="dash-stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Total Refills</p>
+              <h3 id="totalBookingsCount">18</h3>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Preferred Cylinder</p>
+              <h3 style="font-size:1.25rem;">Domestic 14.2kg</h3>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Subsidy Credited</p>
+              <h3>₹4,280</h3>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <div class="stat-info">
+              <p>Invoice Total</p>
+              <h3>₹15,354</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Delivery Feature Banner -->
+        <div class="upcoming-booking-card">
+          <div>
+            <span class="status-pill status-confirmed" style="background:rgba(255,255,255,0.2); color:#FFFFFF; margin-block-end:10px;">Delivery Status: Out for Delivery (Trike #04)</span>
+            <h3 style="font-size:1.5rem; margin-block-end:8px;">Active Refill: Domestic 14.2kg LPG Refill</h3>
+            <p style="font-size:0.95rem; line-height:1.6; margin-block-end:16px;">Dispatched Today from Sector 18 Central Godown at 09:15 AM &bull; Certified electronic scale weighment check scheduled at your doorstep &bull; Delivery OTP: <strong>4892</strong></p>
+            <div class="cta-btn-group" style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-white btn-sm" onclick="showToast('Delivery Specialist notified: Reaching your address in approx. 18 mins.');">Call Delivery Specialist</button>
+              <button type="button" class="btn btn-outline btn-sm" style="color:#FFF; border-color:rgba(255,255,255,0.4);" onclick="showToast('Live GPS trike tracking signal established: 1.2 km away.');">Track Delivery Trike</button>
+            </div>
+          </div>
+
+          <div class="upcoming-driver-pill">
+            <div class="upcoming-driver-img" style="background:var(--accent-primary); color:#FFFFFF; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.15rem; flex-shrink:0;">SP</div>
+            <div>
+              <h4 style="font-size:1.05rem; margin-block-end:2px;">Suresh Patil</h4>
+              <p style="font-size:0.8rem; margin:0;">Delivery Specialist &bull; Badge #BF-0428</p>
+              <span style="font-size:0.8rem; color:#FFE600; font-weight:700;">★ 4.98 Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Refill Table Preview -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3>Recent Refill &amp; Delivery History</h3>
+            <button type="button" class="btn btn-outline btn-sm" onclick="document.querySelector('[data-pane=\'my-bookings\']').click();">View All</button>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Date</th>
+                  <th>Cylinder Type</th>
+                  <th>Delivery Specialist / Hub</th>
+                  <th>Status</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#LPG-9021</strong></td>
+                  <td>Today, 09:15 AM</td>
+                  <td>Domestic 14.2kg Refill</td>
+                  <td>Suresh Patil (Trike 04)</td>
+                  <td><span class="status-pill status-confirmed">Out for Delivery</span></td>
+                  <td>1 Cylinder</td>
+                  <td><strong>₹853</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>#LPG-8910</strong></td>
+                  <td>06 Nov 2026</td>
+                  <td>Domestic 14.2kg Refill</td>
+                  <td>Gurpreet Singh (Depot North)</td>
+                  <td><span class="status-pill status-completed">Delivered &amp; Weighed</span></td>
+                  <td>1 Cylinder</td>
+                  <td><strong>₹853</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>#LPG-8840</strong></td>
+                  <td>28 Oct 2026</td>
+                  <td>Commercial 19kg Supply</td>
+                  <td>Arun Nair (Commercial Hub)</td>
+                  <td><span class="status-pill status-completed">Delivered &amp; Weighed</span></td>
+                  <td>2 Cylinders</td>
+                  <td><strong>₹3,560</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           PANE 2: BOOK A REFILL
+           ====================================================================== -->
+      <section class="dash-pane dash-pane-centered" id="book-driver">
+        <div class="dash-topbar">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;">Express Doorstep Refill</span>
+            <h2>Book an LPG Refill Immediately</h2>
+            <p style="color:var(--text-muted);">Order your cylinder with guaranteed 2-hour express dispatch and digital weighment verification.</p>
+          </div>
+        </div>
+
+        <div class="dash-card" style="max-width:860px;">
+          <form id="dashBookingForm" style="display:flex; flex-direction:column; gap:20px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;" class="grid-2">
+              <div class="form-group">
+                <label for="dashBookService" class="form-label">Cylinder Specification *</label>
+                <select id="dashBookService" class="form-control" required>
+                  <option value="domestic-14" selected>Domestic 14.2kg Refill (₹853)</option>
+                  <option value="commercial-19">Commercial 19kg Cylinder (₹1,780)</option>
+                  <option value="compact-5">Compact 5kg Chotu Refill (₹340)</option>
+                  <option value="industrial-47">Industrial 47.5kg Cylinder (₹4,450)</option>
+                  <option value="new-connection">New Connection Package (₹2,250)</option>
+                  <option value="safety-inspection">Mandatory Safety Inspection (₹199)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="dashBookVehicle" class="form-label">17-Digit LPG Consumer ID *</label>
+                <input type="text" id="dashBookVehicle" class="form-control" value="2400008892147321" required>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;" class="grid-2">
+              <div class="form-group">
+                <label for="dashBookPickup" class="form-label">Delivery Address / Flat No *</label>
+                <input type="text" id="dashBookPickup" class="form-control" value="Flat 402, Tower B, Green Heights, Sector 44" required>
+              </div>
+
+              <div class="form-group">
+                <label for="dashBookDrop" class="form-label">Nearest Landmark / Locality</label>
+                <input type="text" id="dashBookDrop" class="form-control" value="Near Sector 44 Community Gate, Gurgaon">
+              </div>
+            </div>
+
+            <div class="grid-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+              <div class="form-group">
+                <label for="dashBookDate" class="form-label">Preferred Date *</label>
+                <input type="date" id="dashBookDate" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="dashBookTime" class="form-label">Preferred Time Slot *</label>
+                <select id="dashBookTime" class="form-control" required>
+                  <option value="09:00">Morning (08:00 - 12:00)</option>
+                  <option value="13:00">Afternoon (12:00 - 16:00)</option>
+                  <option value="17:00">Evening Express (16:00 - 20:00)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="dashBookHours" class="form-label">Number of Cylinders *</label>
+                <input type="number" id="dashBookHours" class="form-control" min="1" max="10" value="1" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dashBookNotes" class="form-label">Delivery Instructions / Safety Requests</label>
+              <textarea id="dashBookNotes" class="form-control" rows="2" placeholder="e.g. Please perform soapy water leak test upon regulator connection; verify digital scale in presence..."></textarea>
+            </div>
+
+            <!-- Price and Slot Preview -->
+            <div style="background:var(--color-soft-green); border:1px solid rgba(2, 132, 199, 0.25); border-radius:var(--radius-lg); padding:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+              <div>
+                <span style="font-size:0.8rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); display:block;">Estimated Total Price</span>
+                <strong id="dashEstPrice" style="font-size:2rem; color:var(--accent-primary); font-family:var(--font-heading);">₹853</strong>
+                <span style="display:block; font-size:0.8rem; color:var(--text-muted);">Govt subsidized rate &bull; Doorstep electronic weighment check included</span>
+              </div>
+
+              <div style="text-align:right;">
+                <span class="status-badge" style="color:var(--accent-emerald); font-size:0.85rem; margin-block-end:4px;">Available Stock: 42 Cylinders at Central Ward Depot</span>
+                <p style="font-size:0.8rem; color:var(--text-muted);">2-Hour Express Dispatch SLA Active</p>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg mobile-cta-btn" style="align-self:center;">
+              <span>Confirm &amp; Dispatch Refill</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           PANE 3: TRACK DELIVERIES & ORDERS
+           ====================================================================== -->
+      <section class="dash-pane" id="my-bookings">
+        <div class="dash-topbar">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;">Order History</span>
+            <h2>Refill Orders &amp; Delivery Tracking</h2>
+            <p style="color:var(--text-muted);">Review your active dispatches, digital weighment certificates, and delivery milestones.</p>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Date</th>
+                  <th>Cylinder Type</th>
+                  <th>Delivery Hub / Agent</th>
+                  <th>Status</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="myBookingsTableBody">
+                <tr>
+                  <td><strong>#LPG-9021</strong></td>
+                  <td>Today, 09:15 AM</td>
+                  <td>Domestic 14.2kg Refill</td>
+                  <td>Suresh Patil (Trike 04)</td>
+                  <td><span class="status-pill status-confirmed">Out for Delivery</span></td>
+                  <td>1 Cylinder</td>
+                  <td><strong>₹853</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>#LPG-8910</strong></td>
+                  <td>06 Nov 2026</td>
+                  <td>Domestic 14.2kg Refill</td>
+                  <td>Gurpreet Singh (Depot North)</td>
+                  <td><span class="status-pill status-completed">Delivered &amp; Weighed</span></td>
+                  <td>1 Cylinder</td>
+                  <td><strong>₹853</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>#LPG-8840</strong></td>
+                  <td>28 Oct 2026</td>
+                  <td>Commercial 19kg Supply</td>
+                  <td>Arun Nair (Commercial Hub)</td>
+                  <td><span class="status-pill status-completed">Delivered &amp; Weighed</span></td>
+                  <td>2 Cylinders</td>
+                  <td><strong>₹3,560</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>#LPG-8712</strong></td>
+                  <td>14 Oct 2026</td>
+                  <td>Domestic 14.2kg Refill</td>
+                  <td>Amit Sharma (Ward 12)</td>
+                  <td><span class="status-pill status-completed">Delivered &amp; Weighed</span></td>
+                  <td>1 Cylinder</td>
+                  <td><strong>₹853</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>#LPG-8605</strong></td>
+                  <td>02 Oct 2026</td>
+                  <td>Mandatory Safety Inspection</td>
+                  <td>Kenji Takahashi (Lead Auditor)</td>
+                  <td><span class="status-pill status-completed">Audit Completed</span></td>
+                  <td>BIS Certified</td>
+                  <td><strong>₹199</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           PANE 4: DELIVERY CREW & AUDITORS
+           ====================================================================== -->
+      <section class="dash-pane" id="assigned-drivers">
+        <div class="dash-topbar">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;">Field Operations Team</span>
+            <h2>Delivery Specialists &amp; Safety Auditors</h2>
+            <p style="color:var(--text-muted);">Certified professionals who handle hazardous gas transport and safety audits for your address.</p>
+          </div>
+        </div>
+
+        <div class="assigned-drivers-grid">
+          <!-- Specialist 1: Suresh Patil (images/image-20.png) -->
+          <div class="assigned-driver-card">
+            <img src="images/image-20.png" alt="Suresh Patil, Senior Delivery Specialist driving logistics trike" class="assigned-driver-thumb" width="866" height="650">
+            <div class="assigned-driver-meta">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4 style="font-size:1.15rem; margin-bottom:0;">Suresh Patil</h4>
+                <span class="status-badge" style="color:var(--accent-emerald);">Assigned Trike #04</span>
+              </div>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-weight:700;">Domestic Express Logistics Specialist</span>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin:4px 0 8px;"><strong>Experience:</strong> 11+ Years &bull; <strong>Badge:</strong> PESO-48201 &bull; <strong>Languages:</strong> Hindi, Marathi, English</p>
+              <div class="assigned-driver-actions" style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:#E0A800; font-size:0.88rem;">★ 4.98 Rating</span>
+                <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Calling Suresh Patil: +91 98200 48201');">Call Specialist</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specialist 2: Kenji Takahashi (images/image-15.png) -->
+          <div class="assigned-driver-card">
+            <img src="images/image-15.png" alt="Kenji Takahashi, Senior Safety Auditor with BIS inspection kit" class="assigned-driver-thumb" width="600" height="450">
+            <div class="assigned-driver-meta">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4 style="font-size:1.15rem; margin-bottom:0;">Kenji Takahashi</h4>
+                <span class="status-badge" style="color:var(--accent-emerald);">Lead Safety Auditor</span>
+              </div>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-weight:700;">Manifold &amp; Commercial Pipeline Specialist</span>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin:4px 0 8px;"><strong>Experience:</strong> 12+ Years &bull; <strong>Certification:</strong> OISD-111 &bull; <strong>Languages:</strong> English, Japanese</p>
+              <div class="assigned-driver-actions" style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:#E0A800; font-size:0.88rem;">★ 4.99 Rating</span>
+                <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Contacting Safety Auditor Kenji Takahashi...');">Call Auditor</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specialist 3: Arun Nair (images/image-58.png) -->
+          <div class="assigned-driver-card">
+            <img src="images/image-58.png" alt="Arun Nair, Heavy bulk industrial cylinder logistics specialist" class="assigned-driver-thumb" width="728" height="483">
+            <div class="assigned-driver-meta">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4 style="font-size:1.15rem; margin-bottom:0;">Arun Nair</h4>
+                <span class="status-badge" style="color:var(--accent-emerald);">Industrial Certified</span>
+              </div>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-weight:700;">Commercial 19kg &amp; Jumbo 47.5kg Logistics</span>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin:4px 0 8px;"><strong>Experience:</strong> 14+ Years &bull; <strong>Hazardous License:</strong> HAZ-DEL-991 &bull; <strong>Languages:</strong> Hindi, Malayalam, English</p>
+              <div class="assigned-driver-actions" style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:#E0A800; font-size:0.88rem;">★ 4.98 Rating</span>
+                <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Contacting Logistics Lead Arun Nair...');">Call Specialist</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specialist 4: Deepak Joshi (images/image-64.png) -->
+          <div class="assigned-driver-card">
+            <img src="images/image-64.png" alt="Deepak Joshi, Customer relationship and installation mechanic" class="assigned-driver-thumb" width="720" height="480">
+            <div class="assigned-driver-meta">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4 style="font-size:1.15rem; margin-bottom:0;">Deepak Joshi</h4>
+                <span class="status-badge" style="color:var(--accent-emerald);">Installation Lead</span>
+              </div>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-weight:700;">New Connection &amp; e-KYC Verification</span>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin:4px 0 8px;"><strong>Experience:</strong> 9+ Years &bull; <strong>Registration:</strong> REG-LPG-82 &bull; <strong>Languages:</strong> Hindi, English</p>
+              <div class="assigned-driver-actions" style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:700; color:#E0A800; font-size:0.88rem;">★ 4.96 Rating</span>
+                <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Contacting Installation Lead Deepak Joshi...');">Call Specialist</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           PANE 5: INVOICES & BILLING
+           ====================================================================== -->
+      <section class="dash-pane" id="invoices">
+        <div class="dash-topbar">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;">Billing &amp; Compliance</span>
+            <h2>Invoices &amp; Subsidy Vouchers</h2>
+            <p style="color:var(--text-muted);">Download official government tax invoices, DBTL cash transfer receipts, and commercial GST invoices.</p>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Booking ID</th>
+                  <th>Billing Date</th>
+                  <th>Amount</th>
+                  <th>Payment Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#INV-2026-0941</strong></td>
+                  <td>#LPG-9021</td>
+                  <td>10 Nov 2026</td>
+                  <td><strong>₹853.00</strong></td>
+                  <td><span class="status-pill status-confirmed">Paid via UPI</span></td>
+                  <td><button type="button" class="btn btn-outline btn-sm" onclick="showToast('Downloading Tax Invoice &amp; Weight Certificate #INV-2026-0941...');">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#INV-2026-0882</strong></td>
+                  <td>#LPG-8910</td>
+                  <td>06 Nov 2026</td>
+                  <td><strong>₹853.00</strong></td>
+                  <td><span class="status-pill status-confirmed">Paid via NetBanking</span></td>
+                  <td><button type="button" class="btn btn-outline btn-sm" onclick="showToast('Downloading Tax Invoice #INV-2026-0882...');">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#INV-2026-0810</strong></td>
+                  <td>#LPG-8840</td>
+                  <td>28 Oct 2026</td>
+                  <td><strong>₹3,560.00</strong></td>
+                  <td><span class="status-pill status-confirmed">Commercial GST Paid</span></td>
+                  <td><button type="button" class="btn btn-outline btn-sm" onclick="showToast('Downloading Commercial ITC Invoice #INV-2026-0810...');">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#INV-2026-0734</strong></td>
+                  <td>#LPG-8712</td>
+                  <td>14 Oct 2026</td>
+                  <td><strong>₹853.00</strong></td>
+                  <td><span class="status-pill status-confirmed">Cash on Delivery</span></td>
+                  <td><button type="button" class="btn btn-outline btn-sm" onclick="showToast('Downloading Official Cash Receipt #INV-2026-0734...');">Download PDF</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           PANE 6: CONSUMER KYC & PROFILE
+           ====================================================================== -->
+      <section class="dash-pane dash-pane-centered" id="profile">
+        <div class="dash-topbar">
+          <div>
+            <span class="eyebrow" style="margin-bottom:4px;">Consumer Account</span>
+            <h2>Consumer KYC &amp; Profile Settings</h2>
+            <p style="color:var(--text-muted);">Manage your registered 17-digit LPG ID, Aadhaar biometric linkage, and delivery address details.</p>
+          </div>
+        </div>
+
+        <div class="dash-card" style="max-width:720px;">
+          <form onsubmit="event.preventDefault(); showToast('Consumer profile details updated successfully!', 'success');" style="display:flex; flex-direction:column; gap:18px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;" class="grid-2">
+              <div class="form-group">
+                <label for="profName" class="form-label">Full Name</label>
+                <input type="text" id="profName" class="form-control" value="Vikramaditya Singhania" required>
+              </div>
+              <div class="form-group">
+                <label for="profEmail" class="form-label">Email Address</label>
+                <input type="email" id="profEmail" class="form-control" value="vikram@enterprise.com" required>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;" class="grid-2">
+              <div class="form-group">
+                <label for="profPhone" class="form-label">Registered Mobile Number</label>
+                <input type="tel" id="profPhone" class="form-control" value="+91 98101 23456" required>
+              </div>
+              <div class="form-group">
+                <label for="profCity" class="form-label">Assigned Godown Ward</label>
+                <input type="text" id="profCity" class="form-control" value="Sector 18 Ward Depot — New Delhi / NCR">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="profVehicles" class="form-label">17-Digit LPG Consumer ID</label>
+              <input type="text" id="profVehicles" class="form-control" value="2400008892147321" readonly style="background:var(--bg-secondary);">
+              <small style="color:var(--text-muted);">Aadhaar Linked (Masked: XXXX-XXXX-4892) &bull; Bank Subsidy Account Verified (SBI - A/C ending in 9012)</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary mobile-cta-btn" style="align-self:center;">
+              <span>Save Changes</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
