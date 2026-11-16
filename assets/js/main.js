@@ -73,7 +73,7 @@
         const current = document.documentElement.getAttribute('data-theme') || 'light';
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('doh_theme', next);
+        localStorage.setItem('redflame_theme', next);
         updateThemeUI(next);
         showToast(next === 'dark' ? 'Dark mode enabled' : 'Light mode enabled');
       });
@@ -107,7 +107,7 @@
         const current = document.documentElement.getAttribute('dir') || 'ltr';
         const next = current === 'rtl' ? 'ltr' : 'rtl';
         document.documentElement.setAttribute('dir', next);
-        localStorage.setItem('doh_dir', next);
+        localStorage.setItem('redflame_dir', next);
         updateRtlUI(next);
         showToast(next === 'rtl' ? 'RTL layout enabled' : 'LTR layout enabled');
       });
