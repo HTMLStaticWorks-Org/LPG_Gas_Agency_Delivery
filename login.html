@@ -91,10 +91,7 @@
             </div>
 
             <div class="form-group">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-block-end:8px;">
-                <label for="loginPassword" class="form-label" style="margin:0; line-height:1;">Password *</label>
-                <a href="#" onclick="event.preventDefault(); showToast('Password reset PIN has been sent via SMS to your registered mobile number.');" style="font-size:0.82rem; color:var(--accent-primary); font-weight:600; text-decoration:none; line-height:1; display:inline-flex; align-items:center;">Forgot Password?</a>
-              </div>
+              <label for="loginPassword" class="form-label">Password *</label>
               <div class="password-input-wrap">
                 <input type="password" id="loginPassword" class="form-control" placeholder="" value="" required>
                 <button type="button" class="toggle-password-btn" data-target="loginPassword" aria-label="Show password" aria-pressed="false">
@@ -103,9 +100,12 @@
               </div>
             </div>
 
-            <div style="display:flex; align-items:center; gap:8px;">
-              <input type="checkbox" id="rememberMe" checked style="width:18px; height:18px; accent-color:var(--accent-primary);">
-              <label for="rememberMe" style="font-size:0.88rem; color:var(--text-main); cursor:pointer;">Keep my consumer session active on this device</label>
+            <div class="login-options-row" style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-block:2px;">
+              <label for="rememberMe" style="display:inline-flex; align-items:center; gap:8px; font-size:0.86rem; color:var(--text-main); cursor:pointer; margin:0;">
+                <input type="checkbox" id="rememberMe" checked style="width:17px; height:17px; accent-color:var(--accent-primary); flex-shrink:0;">
+                <span>Remember me</span>
+              </label>
+              <a href="#" onclick="event.preventDefault(); showToast('Password reset PIN has been sent via SMS to your registered mobile number.');" style="font-size:0.85rem; color:var(--accent-primary); font-weight:600; text-decoration:none; white-space:nowrap;">Forgot Password?</a>
             </div>
 
             <button type="submit" class="btn btn-primary btn-lg" style="width:100%; margin-top:8px;">
@@ -133,7 +133,7 @@
               </button>
             </div>
 
-            <div style="background:var(--color-soft-green); padding:12px 16px; border-radius:var(--radius-md); font-size:0.82rem; color:var(--text-muted); border:1px dashed rgba(2, 132, 199, 0.3); text-align:center;">
+            <div style="background:var(--color-soft-green); padding:12px 16px; border-radius:var(--radius-md); font-size:0.82rem; color:var(--text-muted); border:1px dashed var(--color-card-border); text-align:center;">
               <strong>Quick Consumer Access:</strong> Click Sign In with the pre-filled credentials to explore your consumer dashboard.
             </div>
           </form>
